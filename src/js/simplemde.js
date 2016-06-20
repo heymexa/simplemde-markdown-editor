@@ -1518,6 +1518,15 @@ SimpleMDE.prototype.render = function(el) {
 
 	this._rendered = this.element;
 
+	if(this.options.rtl) {
+		cm = this.codemirror;
+		var wrapper = cm.getWrapperElement();
+		var preview = wrapper.nextSibling;
+
+		wrapper.className += " direction_rtl_yes";
+		preview.className += " direction_rtl_yes";
+	}
+
 
 	// Fixes CodeMirror bug (#344)
 	var temp_cm = this.codemirror;
